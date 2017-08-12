@@ -30,6 +30,7 @@
 
                     <!-- 表头 -->
                     <thead>
+                        <th>ID</th>
                         <th>商户编号</th>
                         <th>终端号</th>
                         <th>最后修改时间</th>
@@ -41,6 +42,10 @@
                         @foreach ($cases as $case)
                             <tr>
                                 <!-- 案件 -->
+                                <td class="table-text">
+                                    <div>{{ $case->id }}</div>
+                                </td>
+                                
                                 <td class="table-text">
                                     <div>{{ $case->TD_shop_code }}</div>
                                 </td>
