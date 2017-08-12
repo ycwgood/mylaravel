@@ -32,6 +32,7 @@
                     <thead>
                         <th>商户编号</th>
                         <th>终端号</th>
+                        <th>最后修改时间</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -47,7 +48,11 @@
                                 <td class="table-text">
                                     <div>{{ $case->TD_terminal_code }}</div>
                                 </td>
-
+                                
+                                <td class="table-text">
+                                    <div>{{ $case->updated_at }}</div>
+                                </td>
+                                
                                 <td align="right">
                                     <form action="/case/{{ $case->id }}" method="POST" onsubmit="return confirm('确定要删除？');">
                                         {{ csrf_field() }}
