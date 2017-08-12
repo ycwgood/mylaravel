@@ -57,6 +57,8 @@ class CaseController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'TD_terminal_code' => "required|integer|unique:cases,TD_terminal_code,{$request->id}",
+            'TD_request_funds' => empty($request->TD_request_funds) ? '' : 'numeric',
             'TD_date' => empty($request->TD_date) ? '' : 'date',
             'TD_reply_date' => empty($request->TD_reply_date) ? '' : 'date',
             'TD_code' => empty($request->TD_code) ? '' : 'integer',
@@ -64,8 +66,6 @@ class CaseController extends Controller
             'TD_post_freeze' => empty($request->TD_post_freeze) ? '' : 'numeric',
             'TD_pre_freeze' => empty($request->TD_pre_freeze) ? '' : 'numeric',
             'TD_shop_code' => 'required|integer',
-            'TD_terminal_code' => "required|integer|unique:cases,TD_terminal_code,{$request->id}",
-            'TD_request_funds' => empty($request->TD_request_funds) ? '' : 'numeric',
             'TD_remark' => '',
             
             'DD_money' => empty($request->DD_money) ? '' : 'numeric',

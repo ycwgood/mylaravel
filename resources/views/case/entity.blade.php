@@ -16,6 +16,16 @@
                 {{ Form::hidden('id', $case->id) }}
                 
                 <div class="row">
+                    <div class="form-group col-md-4{{ $errors->has('TD_shop_code') ? ' has-error' : '' }}">
+                        {{ Form::label('TD_shop_code', '商户编号', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::number('TD_shop_code', $case->TD_shop_code, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('TD_terminal_code') ? ' has-error' : '' }}">
+                        {{ Form::label('TD_terminal_code', '终端号', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::number('TD_terminal_code', $case->TD_terminal_code, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
                     <div class="form-group col-md-4{{ $errors->has('TD_date') ? ' has-error' : '' }}">
                         {{ Form::label('TD_date', '退单日期', ['class' => 'control-label col-md-4']) }}
                         {{ Form::date('TD_date', $case->TD_date, ['class' => 'form-control col-md-8']) }}
@@ -44,16 +54,6 @@
                     <div class="form-group col-md-4{{ $errors->has('TD_pre_freeze') ? ' has-error' : '' }}">
                         {{ Form::label('TD_pre_freeze', '监控冻结', ['class' => 'control-label col-md-4']) }}
                         {{ Form::text('TD_pre_freeze', $case->TD_pre_freeze, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                    
-                    <div class="form-group col-md-4{{ $errors->has('TD_shop_code') ? ' has-error' : '' }}">
-                        {{ Form::label('TD_shop_code', '商户编号', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::number('TD_shop_code', $case->TD_shop_code, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                    
-                    <div class="form-group col-md-4{{ $errors->has('TD_terminal_code') ? ' has-error' : '' }}">
-                        {{ Form::label('TD_terminal_code', '终端号', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::number('TD_terminal_code', $case->TD_terminal_code, ['class' => 'form-control col-md-8']) }}
                     </div>
                     
                     <div class="form-group col-md-4{{ $errors->has('TD_request_funds') ? ' has-error' : '' }}">
