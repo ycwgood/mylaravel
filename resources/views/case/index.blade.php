@@ -10,9 +10,11 @@
                 <input type="text" name="TD_shop_code" class="form-control col-md-3" value="{{ $request->TD_shop_code }}">
                 <label for=TD_terminal_code class="col-md-1 control-label">终端号</label>
                 <input type="text" name="TD_terminal_code" class="form-control col-md-3" value="{{ $request->TD_terminal_code }}">
-                <span class="col-md-1"></span>
+                <span class="col-md-1">&nbsp;</span>
                 <button class="btn btn-default">搜索</button>
                 <a href="/cases" class="btn btn-default">全部</a>
+                
+                <a href="/case" class="btn btn-primary" style="float:right">+添加</a>
             </form>
         </div>
     </div>
@@ -20,7 +22,7 @@
     @if (count($cases) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
-                列表 &gt; <a href="/case" class="btn btn-default">添加</a>
+                列表
             </div>
 
             <div class="panel-body">
@@ -46,12 +48,12 @@
                                     <div>{{ $case->TD_terminal_code }}</div>
                                 </td>
 
-                                <td>
-                                    <form action="/case/{{ $case->id }}" method="POST">
+                                <td align="right">
+                                    <form action="/case/{{ $case->id }}" method="POST" onsubmit="return confirm('确定要删除？');">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        <a href="/case/{{ $case->id }}" class="btn btn-default">编辑</a>
-                                        <button class="btn btn-default">删除</button>
+                                        <a href="/case/{{ $case->id }}" class="btn btn-primary">编辑</a>
+                                        <input type="submit" class="btn btn-danger" value="删除">
                                     </form>
                                 </td>
                             </tr>

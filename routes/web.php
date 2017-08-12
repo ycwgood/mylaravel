@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'TaskController@index');
+Route::get('/', 'CaseController@index');
 
 Route::get('info', function () {
     phpinfo();

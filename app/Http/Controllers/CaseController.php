@@ -36,7 +36,9 @@ class CaseController extends Controller
     {
         $case = new MyCase();
         
-        $case->TD_date = $case->TD_reply_date = $case->DD_date = $case->DD_reply_date = $case->case_date = date('Y-m-d');
+        if (old('TD_date') == '') {
+            $case->TD_date = $case->TD_reply_date = date('Y-m-d');
+        }
         
         return view('case.entity', [
             'case' => $case
@@ -55,8 +57,33 @@ class CaseController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'TD_shop_code' => 'required|max:255',
-            'TD_terminal_code' => 'required|max:255',
+            'TD_date' => empty($request->TD_date) ? '' : 'date',
+            'TD_reply_date' => empty($request->TD_reply_date) ? '' : 'date',
+            'TD_code' => empty($request->TD_code) ? '' : 'integer',
+            'TD_money' => empty($request->TD_money) ? '' : 'numeric',
+            'TD_post_freeze' => empty($request->TD_post_freeze) ? '' : 'numeric',
+            'TD_pre_freeze' => empty($request->TD_pre_freeze) ? '' : 'numeric',
+            'TD_shop_code' => 'required|integer',
+            'TD_terminal_code' => "required|integer|unique:cases,TD_terminal_code,{$request->id}",
+            'TD_request_funds' => empty($request->TD_request_funds) ? '' : 'numeric',
+            'TD_remark' => '',
+            
+            'DD_money' => empty($request->DD_money) ? '' : 'numeric',
+            'DD_date' => empty($request->DD_date) ? '' : 'date',
+            'DD_reply_date' => empty($request->DD_reply_date) ? '' : 'date',
+            'DD_remark' => '',
+            
+            'case_card' => empty($request->case_card) ? '' : 'integer',
+            'case_from' => '',
+            'case_reason' => '',
+            'case_result' => '',
+            'case_date' => empty($request->case_date) ? '' : 'date',
+            'case_cheat_money' => empty($request->case_cheat_money) ? '' : 'numeric',
+            'case_freeze' => empty($request->case_freeze) ? '' : 'numeric',
+            'case_remark' => '',
+            'case_police_contact' => '',
+            'case_police_office' => '',
+            'case_police_remark' => '',
         ]);
         
         if ($request->id == 0) {
