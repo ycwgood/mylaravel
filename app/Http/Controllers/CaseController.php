@@ -17,7 +17,7 @@ class CaseController extends Controller
         $cases = MyCase::where([
             ['TD_shop_code', 'like', "%{$request->TD_shop_code}%"],
             ['TD_terminal_code', 'like', "%{$request->TD_terminal_code}%"],
-        ])->orderBy('id', 'desc')->paginate(5);
+        ])->orderBy('id', 'desc')->paginate(20);
         
         return view('case.index', [
             'cases' => $cases,
