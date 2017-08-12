@@ -164,13 +164,16 @@
                     </div>
                 </div>
                 
+                <h1></h1>
+                
                 <!-- 新增编辑按钮-->
-                <div class="form-group">
-                    <div class="col-sm-offset-3 col-sm-6">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fa fa-plus"></i> 保存
-                        </button>
-                    </div>
+                <div class="form-group col-md-offset-3 col-md-8">
+                    <button type="submit" class="btn btn-primary">
+                        保存
+                    </button>
+                    <a class="btn btn-default" href="/cases">
+                        取消
+                    </a>
                 </div>
             {{ Form::close() }}
         </div>
