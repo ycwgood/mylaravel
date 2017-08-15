@@ -58,7 +58,7 @@ class CaseController extends Controller
     {
         $this->validate($request, [
             'TD_terminal_code' => "required|integer|unique:cases,TD_terminal_code,{$request->id}",
-            'TD_request_funds' => empty($request->TD_request_funds) ? '' : 'numeric',
+            
             'TD_date' => empty($request->TD_date) ? '' : 'date',
             'TD_reply_date' => empty($request->TD_reply_date) ? '' : 'date',
             'TD_code' => empty($request->TD_code) ? '' : 'integer',
@@ -66,6 +66,7 @@ class CaseController extends Controller
             'TD_post_freeze' => empty($request->TD_post_freeze) ? '' : 'numeric',
             'TD_pre_freeze' => empty($request->TD_pre_freeze) ? '' : 'numeric',
             'TD_shop_code' => 'required|integer',
+            'TD_request_funds' => '',
             'TD_remark' => '',
             
             'DD_money' => empty($request->DD_money) ? '' : 'numeric',
@@ -93,6 +94,8 @@ class CaseController extends Controller
             $case = MyCase::findOrFail($request->id);
         }
         
+        $case->TD_business = $request->TD_business;
+        $case->TD_do = $request->TD_do;
         $case->TD_date = $request->TD_date;
         $case->TD_reply_date = $request->TD_reply_date;
         $case->TD_code = $request->TD_code;
@@ -110,6 +113,7 @@ class CaseController extends Controller
         $case->DD_remark = $request->DD_remark;
         
         $case->case_card = $request->case_card;
+        $case->case_card2 = $request->case_card2;
         $case->case_from = $request->case_from;
         $case->case_reason = $request->case_reason;
         $case->case_result = $request->case_result;

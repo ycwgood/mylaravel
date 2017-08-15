@@ -26,6 +26,16 @@
                         {{ Form::number('TD_terminal_code', $case->TD_terminal_code, ['class' => 'form-control col-md-8']) }}
                     </div>
                     
+                    <div class="form-group col-md-4{{ $errors->has('TD_business') ? ' has-error' : '' }}">
+                        {{ Form::label('TD_business', '业务类型', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::select('TD_business', ['' => '无', '大POS' => '大POS', '智能POS' => '智能POS', 'MPOS个人' => 'MPOS个人', 'MPOS商户' => 'MPOS商户', '平台扫描' => '平台扫描', 'other' => '其他'], $case->TD_business, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('TD_do') ? ' has-error' : '' }}">
+                        {{ Form::label('TD_do', '是否DO', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::select('TD_do', ['' => '无', '是' => '是', '否' => '否'], $case->TD_do, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
                     <div class="form-group col-md-4{{ $errors->has('TD_date') ? ' has-error' : '' }}">
                         {{ Form::label('TD_date', '退单日期', ['class' => 'control-label col-md-4']) }}
                         {{ Form::date('TD_date', $case->TD_date, ['class' => 'form-control col-md-8']) }}
@@ -103,6 +113,11 @@
                     <div class="form-group col-md-4{{ $errors->has('case_card') ? ' has-error' : '' }}">
                         {{ Form::label('case_card', '卡号信息', ['class' => 'control-label col-md-4']) }}
                         {{ Form::number('case_card', $case->case_card, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('case_card2') ? ' has-error' : '' }}">
+                        {{ Form::label('case_card2', '卡号II信息', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::number('case_card2', $case->case_card2, ['class' => 'form-control col-md-8']) }}
                     </div>
                     
                     <div class="form-group col-md-4{{ $errors->has('case_from') ? ' has-error' : '' }}">

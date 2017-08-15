@@ -33,6 +33,7 @@
                         <th>ID</th>
                         <th>商户编号</th>
                         <th>终端号</th>
+                        <th>创建时间</th>
                         <th>最后修改时间</th>
                         <th>&nbsp;</th>
                     </thead>
@@ -52,6 +53,10 @@
                                 
                                 <td class="table-text">
                                     <div>{{ $case->TD_terminal_code }}</div>
+                                </td>
+                                
+                                <td class="table-text">
+                                    <div>{{ $case->created_at }}</div>
                                 </td>
                                 
                                 <td class="table-text">

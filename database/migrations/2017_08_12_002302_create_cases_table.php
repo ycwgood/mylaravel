@@ -16,6 +16,8 @@ class CreateCasesTable extends Migration
         Schema::create('cases', function (Blueprint $table) {
             $table->increments('id');
             
+            $table->string('TD_business')->nullable()->comment('业务类型');
+            $table->string('TD_do')->nullable()->comment('是否DO');
             $table->date('TD_date')->nullable()->comment('退单日期');
             $table->date('TD_reply_date')->nullable()->comment('退单回复日期');
             $table->string('TD_code')->nullable()->comment('退单代码');
@@ -33,6 +35,7 @@ class CreateCasesTable extends Migration
             $table->text('DD_remark')->nullable()->comment('调单备注');
             
             $table->string('case_card')->nullable()->comment('卡号信息');
+            $table->string('case_card2')->nullable()->comment('卡号II信息');
             $table->string('case_from')->nullable()->comment('案件来源');
             $table->string('case_reason')->nullable()->comment('案件原因');
             $table->string('case_result')->nullable()->comment('处理结果');

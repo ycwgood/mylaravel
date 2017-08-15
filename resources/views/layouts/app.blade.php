@@ -29,7 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        拉卡拉风控案例库
+                        {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
 
