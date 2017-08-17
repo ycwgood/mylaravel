@@ -73,6 +73,11 @@
 
         @yield('content')
     </div>
+    
+    <div style="text-align:center; padding: 20px 0">
+        &copy;2017{{ config('app.name', 'Laravel') }}
+    </div>
+    
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
