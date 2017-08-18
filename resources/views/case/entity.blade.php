@@ -36,6 +36,85 @@
                         {{ Form::select('TD_do', ['' => '无', '是' => '是', '否' => '否'], $case->TD_do, ['class' => 'form-control col-md-8']) }}
                     </div>
                     
+                    <div class="form-group col-md-4{{ $errors->has('case_from') ? ' has-error' : '' }}">
+                        {{ Form::label('case_from', '案件来源', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::select('case_from', ['' => '无', '银行' => '银行', '银联' => '银联', '人行' => '人行', '客服' => '客服', '监控' => '监控', 'other' => '其他'], $case->case_from, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('case_reason') ? ' has-error' : '' }}">
+                        {{ Form::label('case_reason', '案件原因', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::select('case_reason', ['' => '无', '集资诈骗' => '集资诈骗', '电信诈骗' => '电信诈骗', '普通类诈骗' => '普通类诈骗', '盗刷' => '盗刷', '非法经营' => '非法经营', 'CPP' => 'CPP', '二清' => '二清', '赌博' => '赌博', '疑似伪卡' => '疑似伪卡', '洗钱' => '洗钱', '套现' => '套现', '云闪付盗刷' => '云闪付盗刷', '跨境移机' => '跨境移机', 'other' => '其他'], $case->case_reason, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('case_result') ? ' has-error' : '' }}">
+                        {{ Form::label('case_result', '处理结果', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::select('case_result', ['' => '无', '冻结账户' => '冻结账户', '加入黑名单' => '加入黑名单', '冻结账户，加入黑名单' => '冻结账户，加入黑名单', 'other' => '其他'], $case->case_result, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('case_date') ? ' has-error' : '' }}">
+                        {{ Form::label('case_date', '报案日期', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::date('case_date', $case->case_date, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('case_cheat_money') ? ' has-error' : '' }}">
+                        {{ Form::label('case_cheat_money', '欺诈金额', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::text('case_cheat_money', $case->case_cheat_money, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('case_freeze') ? ' has-error' : '' }}">
+                        {{ Form::label('case_freeze', '冻结金额', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::text('case_freeze', $case->case_freeze, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                </div>
+                
+                <div class="row">
+                    <div class="form-group col-md-4{{ $errors->has('case_remark') ? ' has-error' : '' }}">
+                            {{ Form::label('case_remark', '案件备注', ['class' => 'control-label col-md-4']) }}
+                            {{ Form::textarea('case_remark', $case->case_remark, ['class' => 'form-control col-md-8', 'rows' => 2, 'cols' => 20]) }}
+                    </div>
+                </div>
+                
+                <h1></h1>
+                
+                <div class="row">
+                    <div class="form-group col-md-4{{ $errors->has('DD_money') ? ' has-error' : '' }}">
+                        {{ Form::label('DD_money', '调单金额', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::text('DD_money', $case->DD_money, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('DD_date') ? ' has-error' : '' }}">
+                        {{ Form::label('DD_date', '调单日期', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::date('DD_date', $case->DD_date, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('DD_reply_date') ? ' has-error' : '' }}">
+                        {{ Form::label('DD_reply_date', '回复日期', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::date('DD_reply_date', $case->DD_reply_date, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                </div>
+               
+                <div class="row">
+                    <div class="form-group col-md-4{{ $errors->has('DD_remark') ? ' has-error' : '' }}">
+                            {{ Form::label('DD_remark', '调单备注', ['class' => 'control-label col-md-4']) }}
+                            {{ Form::textarea('DD_remark', $case->DD_remark, ['class' => 'form-control col-md-8', 'rows' => 2, 'cols' => 20]) }}
+                    </div>
+                </div>
+                
+                <h1></h1>
+                
+                <div class="row">
+                    <div class="form-group col-md-4{{ $errors->has('case_card') ? ' has-error' : '' }}">
+                        {{ Form::label('case_card', '卡号信息', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::number('case_card', $case->case_card, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('case_card2') ? ' has-error' : '' }}">
+                        {{ Form::label('case_card2', '卡号II信息', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::number('case_card2', $case->case_card2, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    
                     <div class="form-group col-md-4{{ $errors->has('TD_date') ? ' has-error' : '' }}">
                         {{ Form::label('TD_date', '退单日期', ['class' => 'control-label col-md-4']) }}
                         {{ Form::date('TD_date', $case->TD_date, ['class' => 'form-control col-md-8']) }}
@@ -81,82 +160,6 @@
                     </div>
                 </div>
                 
-                <h1></h1>
-                
-                <div class="row">
-                    <div class="form-group col-md-4{{ $errors->has('DD_money') ? ' has-error' : '' }}">
-                        {{ Form::label('DD_money', '调单金额', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::text('DD_money', $case->DD_money, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                    
-                    <div class="form-group col-md-4{{ $errors->has('DD_date') ? ' has-error' : '' }}">
-                        {{ Form::label('DD_date', '调单日期', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::date('DD_date', $case->DD_date, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                    
-                    <div class="form-group col-md-4{{ $errors->has('DD_reply_date') ? ' has-error' : '' }}">
-                        {{ Form::label('DD_reply_date', '回复日期', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::date('DD_reply_date', $case->DD_reply_date, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                </div>
-               
-                <div class="row">
-                    <div class="form-group col-md-4{{ $errors->has('DD_remark') ? ' has-error' : '' }}">
-                            {{ Form::label('DD_remark', '调单备注', ['class' => 'control-label col-md-4']) }}
-                            {{ Form::textarea('DD_remark', $case->DD_remark, ['class' => 'form-control col-md-8', 'rows' => 2, 'cols' => 20]) }}
-                    </div>
-                </div>
-                
-                <h1></h1>
-                
-                <div class="row">
-                    <div class="form-group col-md-4{{ $errors->has('case_card') ? ' has-error' : '' }}">
-                        {{ Form::label('case_card', '卡号信息', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::number('case_card', $case->case_card, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                    
-                    <div class="form-group col-md-4{{ $errors->has('case_card2') ? ' has-error' : '' }}">
-                        {{ Form::label('case_card2', '卡号II信息', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::number('case_card2', $case->case_card2, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                    
-                    <div class="form-group col-md-4{{ $errors->has('case_from') ? ' has-error' : '' }}">
-                        {{ Form::label('case_from', '案件来源', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::select('case_from', ['' => '无', '银行' => '银行', '银联' => '银联', '人行' => '人行', '客服' => '客服', '监控' => '监控', 'other' => '其他'], $case->case_from, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                    
-                    <div class="form-group col-md-4{{ $errors->has('case_reason') ? ' has-error' : '' }}">
-                        {{ Form::label('case_reason', '案件原因', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::select('case_reason', ['' => '无', '集资诈骗' => '集资诈骗', '电信诈骗' => '电信诈骗', '普通类诈骗' => '普通类诈骗', '盗刷' => '盗刷', '非法经营' => '非法经营', 'CPP' => 'CPP', '二清' => '二清', '赌博' => '赌博', '疑似伪卡' => '疑似伪卡', '洗钱' => '洗钱', '套现' => '套现', '云闪付盗刷' => '云闪付盗刷', '跨境移机' => '跨境移机', 'other' => '其他'], $case->case_reason, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                    
-                    <div class="form-group col-md-4{{ $errors->has('case_result') ? ' has-error' : '' }}">
-                        {{ Form::label('case_result', '处理结果', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::select('case_result', ['' => '无', '冻结账户' => '冻结账户', '加入黑名单' => '加入黑名单', '冻结账户，加入黑名单' => '冻结账户，加入黑名单', 'other' => '其他'], $case->case_result, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                    
-                    <div class="form-group col-md-4{{ $errors->has('case_date') ? ' has-error' : '' }}">
-                        {{ Form::label('case_date', '报案日期', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::text('case_date', $case->case_date, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                    
-                    <div class="form-group col-md-4{{ $errors->has('case_cheat_money') ? ' has-error' : '' }}">
-                        {{ Form::label('case_cheat_money', '欺诈金额', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::text('case_cheat_money', $case->case_cheat_money, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                    
-                    <div class="form-group col-md-4{{ $errors->has('case_freeze') ? ' has-error' : '' }}">
-                        {{ Form::label('case_freeze', '冻结金额', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::text('case_freeze', $case->case_freeze, ['class' => 'form-control col-md-8']) }}
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="form-group col-md-4{{ $errors->has('case_remark') ? ' has-error' : '' }}">
-                            {{ Form::label('case_remark', '案件备注', ['class' => 'control-label col-md-4']) }}
-                            {{ Form::textarea('case_remark', $case->case_remark, ['class' => 'form-control col-md-8', 'rows' => 2, 'cols' => 20]) }}
-                    </div>
-                </div>
                 
                 <h1></h1>
                 
