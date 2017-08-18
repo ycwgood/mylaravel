@@ -28,7 +28,7 @@
                     
                     <div class="form-group col-md-4{{ $errors->has('TD_business') ? ' has-error' : '' }}">
                         {{ Form::label('TD_business', '业务类型', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::select('TD_business', ['' => '无', '大POS' => '大POS', '智能POS' => '智能POS', 'MPOS个人' => 'MPOS个人', 'MPOS商户' => 'MPOS商户', '平台扫描' => '平台扫描', 'other' => '其他'], $case->TD_business, ['class' => 'form-control col-md-8']) }}
+                        {{ Form::select('TD_business', ['' => '无', '传统POS' => '传统POS', '智能POS' => '智能POS', 'MPOS个人' => 'MPOS个人', 'MPOS商户' => 'MPOS商户', '平台扫码' => '平台扫码', 'other' => '其他'], $case->TD_business, ['class' => 'form-control col-md-8']) }}
                     </div>
                     
                     <div class="form-group col-md-4{{ $errors->has('TD_do') ? ' has-error' : '' }}">
@@ -67,7 +67,7 @@
                     </div>
                     
                     <div class="form-group col-md-4{{ $errors->has('TD_request_funds') ? ' has-error' : '' }}">
-                        {{ Form::label('TD_request_funds', '再请款？', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::label('TD_request_funds', '再请款', ['class' => 'control-label col-md-4']) }}
                         {{ Form::text('TD_request_funds', $case->TD_request_funds, ['class' => 'form-control col-md-8']) }}
                     </div>
                     
