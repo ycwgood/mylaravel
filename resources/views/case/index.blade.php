@@ -15,6 +15,7 @@
                 <a href="/cases" class="btn btn-default">全部</a>
                 
                 <a href="/case" class="btn btn-primary" style="float:right">+添加</a>
+                <a href="/cases/export" class="btn btn-default" style="float:right">导出</a>
             </form>
         </div>
     </div>

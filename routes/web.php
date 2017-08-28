@@ -32,3 +32,4 @@ Route::get('/case', 'CaseController@add');
 Route::get('/case/{id}', 'CaseController@edit');
 Route::post('/case', 'CaseController@store');
 Route::delete('/case/{id}', 'CaseController@destroy');
+Route::get('/cases/export', 'CaseController@export');

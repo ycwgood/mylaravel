@@ -136,4 +136,69 @@ class CaseController extends Controller
         
         return redirect('/cases');
     }
+    
+    public function export()
+    {
+        static $fieldList = array(
+            'TD_shop_code' => '商户编号',
+            'TD_terminal_code' => '终端号',
+            'TD_business' => '业务类型',
+            'TD_do' => '是否DO',
+            'case_from' => '案件来源',
+            'case_reason' => '案件原因',
+            'case_result' => '处理结果',
+            'case_date' => '报案日期',
+            'case_cheat_money' => '欺诈金额',
+            'case_freeze' => '冻结金额',
+            'case_remark' => '案件备注',
+            'DD_money' => '调单金额',
+            'DD_date' => '调单日期',
+            'DD_reply_date' => '回复日期',
+            'DD_remark' => '调单备注',
+            'case_card' => '卡号信息',
+            'case_card2' => '卡号II信息',
+            'TD_date' => '退单日期',
+            'TD_reply_date' => '回复日期',
+            'TD_code' => '退单代码',
+            'TD_money' => '退单金额',
+            'TD_post_freeze' => '事后冻结',
+            'TD_pre_freeze' => '监控冻结',
+            'TD_request_funds' => '再请款',
+            'TD_remark' => '退单备注',
+            'case_police_contact' => '警方联系人',
+            'case_police_office' => '警方公安局',
+            'case_police_remark' => '警方协查备注',
+        );
+        
+        $content = '';
+        
+        // header
+        foreach ($fieldList as $fieldName) {
+            $content .= $this->csvItem($fieldName);
+        }
+        $content .= PHP_EOL;
+        
+        // body
+        $cases = MyCase::all();
+        
+        foreach ($cases as $case) {
+            foreach ($fieldList as $field => $fieldName) {
+                $content .= $this->csvItem($case->$field);
+            }
+            $content .= PHP_EOL;
+        }
+        
+        $fileName = rawurlencode('export.csv');
+        return response($content)
+                ->withHeaders([
+                    'Content-Disposition' => 'attachment; filename="' . $fileName . '"; filename*=utf-8' . "''" . $fileName,
+                    'Content-Type' => 'application/octet-stream',
+                ]);
+    }
+    
+    protected function csvItem($item)
+    {
+        $item = str_replace(array('"', "\n"), array('""', ''), $item);
+        return '"' . iconv('UTF-8', 'gbk', $item) . '",';
+    }
 }
