@@ -199,6 +199,6 @@ class CaseController extends Controller
     protected function csvItem($item)
     {
         $item = str_replace(array('"', "\n"), array('""', ''), $item);
-        return '"' . iconv('UTF-8', 'gbk', $item) . '",';
+        return '"' . iconv('UTF-8', 'gbk//TRANSLIT', $item) . '",';
     }
 }
