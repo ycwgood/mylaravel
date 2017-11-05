@@ -66,6 +66,11 @@
                         {{ Form::text('freeze_money', $case->freeze_money, ['class' => 'form-control col-md-8']) }}
                     </div>
                     
+                    <div class="form-group col-md-4{{ $errors->has('transfer_money') ? ' has-error' : '' }}">
+                        {{ Form::label('transfer_money', '划款成功金额', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::text('transfer_money', $case->transfer_money, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
                     <div class="form-group col-md-4{{ $errors->has('case_from') ? ' has-error' : '' }}">
                         {{ Form::label('case_from', '案件来源', ['class' => 'control-label col-md-4']) }}
                         {{ Form::select('case_from', ['' => '无', '银行' => '银行', '银联' => '银联', '人行' => '人行', '客服' => '客服', '监控' => '监控', 'other' => '其他'], $case->case_from, ['class' => 'form-control col-md-8']) }}

@@ -54,6 +54,7 @@ class OnlineCaseController extends Controller
             'transaction_date' => empty($request->transaction_date) ? '' : 'date',
             'cheat_money' => empty($request->cheat_money) ? '' : 'numeric',
             'freeze_money' => empty($request->freeze_money) ? '' : 'numeric',
+            'transfer_money' => empty($request->transfer_money) ? '' : 'numeric',
         ]);
         
         if ($request->id == 0) {
@@ -73,6 +74,7 @@ class OnlineCaseController extends Controller
         $case->transaction_date = $request->transaction_date;
         $case->cheat_money = $request->cheat_money;
         $case->freeze_money = $request->freeze_money;
+        $case->transfer_money = $request->transfer_money;
         $case->case_from = $request->case_from;
         $case->scan_category = $request->scan_category;
         $case->trigger_rule = $request->trigger_rule;
@@ -104,6 +106,7 @@ class OnlineCaseController extends Controller
             'transaction_date' => '交易日期',
             'cheat_money' => '投诉金额',
             'freeze_money' => '冻结金额',
+            'transfer_money' => '划款成功金额',
             'case_from' => '案件来源',
             'scan_category' => '扫码类别',
             'trigger_rule' => '是否触发规则',

@@ -26,6 +26,7 @@ class CreateOnlinecasesTable extends Migration
             $table->date('transaction_date')->nullable()->comment('交易日期');
             $table->float('cheat_money')->nullable()->comment('投诉金额');
             $table->float('freeze_money')->nullable()->comment('冻结金额');
+            $table->float('transfer_money')->nullable()->comment('划款成功金额');
             $table->string('case_from')->nullable()->comment('案件来源');
             $table->string('scan_category')->nullable()->comment('扫码类别');
             $table->string('trigger_rule')->nullable()->comment('是否触发规则');
