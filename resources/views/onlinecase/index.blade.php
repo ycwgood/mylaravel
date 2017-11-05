@@ -5,19 +5,19 @@
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-body">
-            <form action="/cases" method="GET" class="form-horizontal form-inline">
-                <a href="/cases" class="col-md-1 btn btn-primary">收单</a>
-                <a href="/onlinecases" class="col-md-1 btn btn-default">扫码</a>
-                <label for=TD_shop_code class="col-md-1 control-label">商户号</label>
-                <input type="text" name="TD_shop_code" class="form-control col-md-3" value="{{ $request->TD_shop_code }}">
-                <label for=TD_terminal_code class="col-md-1 control-label">终端号</label>
-                <input type="text" name="TD_terminal_code" class="form-control col-md-3" value="{{ $request->TD_terminal_code }}">
+            <form action="/onlinecases" method="GET" class="form-horizontal form-inline">
+                <a href="/cases" class="col-md-1 btn btn-default">收单</a>
+                <a href="/onlinecases" class="col-md-1 btn btn-primary">扫码</a>
+                <label for=shop_code class="col-md-1 control-label">商户号</label>
+                <input type="text" name="shop_code" class="form-control col-md-3" value="{{ $request->shop_code }}">
+                <label for=terminal_code class="col-md-1 control-label">终端号</label>
+                <input type="text" name="terminal_code" class="form-control col-md-3" value="{{ $request->terminal_code }}">
                 <span class="col-md-1">&nbsp;</span>
                 <button class="btn btn-default">搜索</button>
-                <a href="/cases" class="btn btn-default">全部</a>
+                <a href="/onlinecases" class="btn btn-default">全部</a>
                 
-                <a href="/case" class="btn btn-primary" style="float:right">+添加</a>
-                <a href="/cases/export" class="btn btn-default" style="float:right">导出</a>
+                <a href="/onlinecase" class="btn btn-primary" style="float:right">+添加</a>
+                <a href="/onlinecases/export" class="btn btn-default" style="float:right">导出</a>
             </form>
         </div>
     </div>
@@ -51,11 +51,11 @@
                                 </td>
                                 
                                 <td class="table-text">
-                                    <div>{{ $case->TD_shop_code }}</div>
+                                    <div>{{ $case->shop_code }}</div>
                                 </td>
                                 
                                 <td class="table-text">
-                                    <div>{{ $case->TD_terminal_code }}</div>
+                                    <div>{{ $case->terminal_code }}</div>
                                 </td>
                                 
                                 <td class="table-text">
@@ -67,10 +67,10 @@
                                 </td>
                                 
                                 <td align="right">
-                                    <form action="/case/{{ $case->id }}" method="POST" onsubmit="return confirm('确定要删除？');">
+                                    <form action="/onlinecase/{{ $case->id }}" method="POST" onsubmit="return confirm('确定要删除？');">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        <a href="/case/{{ $case->id }}" class="btn btn-primary">编辑</a>
+                                        <a href="/onlinecase/{{ $case->id }}" class="btn btn-primary">编辑</a>
                                         <input type="submit" class="btn btn-danger" value="删除">
                                     </form>
                                 </td>

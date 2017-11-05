@@ -140,7 +140,7 @@ class CaseController extends Controller
     public function export()
     {
         static $fieldList = array(
-            'TD_shop_code' => '商户编号',
+            'TD_shop_code' => '商户号',
             'TD_terminal_code' => '终端号',
             'TD_business' => '业务类型',
             'TD_do' => '是否DO',

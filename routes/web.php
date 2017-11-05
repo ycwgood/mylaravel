@@ -33,3 +33,11 @@ Route::get('/case/{id}', 'CaseController@edit');
 Route::post('/case', 'CaseController@store');
 Route::delete('/case/{id}', 'CaseController@destroy');
 Route::get('/cases/export', 'CaseController@export');
+
+Route::get('/onlinecases', 'OnlineCaseController@index');
+Route::get('/onlinecase', 'OnlineCaseController@add');
+Route::get('/onlinecase/{id}', 'OnlineCaseController@edit');
+Route::post('/onlinecase', 'OnlineCaseController@store');
+Route::delete('/onlinecase/{id}', 'OnlineCaseController@destroy');
+Route::get('/onlinecases/export', 'OnlineCaseController@export');
+
