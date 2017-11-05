@@ -6,7 +6,7 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <form action="/cases" method="GET" class="form-horizontal form-inline">
-                <label for=TD_shop_code class="col-md-1 control-label">商户编号</label>
+                <label for=TD_shop_code class="col-md-1 control-label">商户号</label>
                 <input type="text" name="TD_shop_code" class="form-control col-md-3" value="{{ $request->TD_shop_code }}">
                 <label for=TD_terminal_code class="col-md-1 control-label">终端号</label>
                 <input type="text" name="TD_terminal_code" class="form-control col-md-3" value="{{ $request->TD_terminal_code }}">
@@ -32,7 +32,7 @@
                     <!-- 表头 -->
                     <thead>
                         <th>ID</th>
-                        <th>商户编号</th>
+                        <th>商户号</th>
                         <th>终端号</th>
                         <th>创建时间</th>
                         <th>最后修改时间</th>

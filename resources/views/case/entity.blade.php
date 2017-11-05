@@ -17,7 +17,7 @@
                 
                 <div class="row">
                     <div class="form-group col-md-4{{ $errors->has('TD_shop_code') ? ' has-error' : '' }}">
-                        {{ Form::label('TD_shop_code', '商户编号', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::label('TD_shop_code', '商户号', ['class' => 'control-label col-md-4']) }}
                         {{ Form::number('TD_shop_code', $case->TD_shop_code, ['class' => 'form-control col-md-8']) }}
                     </div>
                     

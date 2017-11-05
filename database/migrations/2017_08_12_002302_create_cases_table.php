@@ -24,7 +24,7 @@ class CreateCasesTable extends Migration
             $table->float('TD_money')->nullable()->comment('退单金额');
             $table->float('TD_post_freeze')->nullable()->comment('事后冻结');
             $table->float('TD_pre_freeze')->nullable()->comment('监控冻结');
-            $table->string('TD_shop_code')->nullable()->comment('商户编号');
+            $table->string('TD_shop_code')->nullable()->comment('商户号');
             $table->string('TD_terminal_code')->unique()->comment('终端号');   // unique
             $table->string('TD_request_funds')->nullable()->comment('是否再请款');
             $table->text('TD_remark')->nullable()->comment('退单备注');
