@@ -73,7 +73,7 @@
                     
                     <div class="form-group col-md-4{{ $errors->has('case_from') ? ' has-error' : '' }}">
                         {{ Form::label('case_from', '案件来源', ['class' => 'control-label col-md-4']) }}
-                        {{ Form::select('case_from', ['' => '无', '银行' => '银行', '银联' => '银联', '人行' => '人行', '客服' => '客服', '监控' => '监控', 'other' => '其他'], $case->case_from, ['class' => 'form-control col-md-8']) }}
+                        {{ Form::select('case_from', ['' => '无', '银行' => '银行', '支付宝' => '支付宝', '微信' => '微信', '客服' => '客服', '监控' => '监控', 'other' => '其他'], $case->case_from, ['class' => 'form-control col-md-8']) }}
                     </div>
                     
                     <div class="form-group col-md-4{{ $errors->has('scan_category') ? ' has-error' : '' }}">
