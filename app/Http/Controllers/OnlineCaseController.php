@@ -79,6 +79,8 @@ class OnlineCaseController extends Controller
         $case->scan_category = $request->scan_category;
         $case->trigger_rule = $request->trigger_rule;
         $case->close = $request->close;
+        $case->complainant = $request->complainant;
+        $case->complaint_call = $request->complaint_call;
         $case->remark = $request->remark;
         
         $case->save();
@@ -111,6 +113,8 @@ class OnlineCaseController extends Controller
             'scan_category' => '扫码类别',
             'trigger_rule' => '是否触发规则',
             'close' => '是否关闭',
+            'complainant' => '投诉人',
+            'complaint_call' => '投诉电话',
             'remark' => '备注',
         );
         

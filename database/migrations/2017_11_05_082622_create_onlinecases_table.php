@@ -31,6 +31,8 @@ class CreateOnlinecasesTable extends Migration
             $table->string('scan_category')->nullable()->comment('扫码类别');
             $table->string('trigger_rule')->nullable()->comment('是否触发规则');
             $table->string('close')->nullable()->comment('是否关闭');
+            $table->string('complainant')->nullable()->comment('投诉人');
+            $table->string('complaint_call')->nullable()->comment('投诉电话');
             $table->text('remark')->nullable()->comment('备注');
             
             $table->timestamps();

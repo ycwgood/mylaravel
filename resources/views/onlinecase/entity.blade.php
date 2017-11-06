@@ -90,6 +90,16 @@
                         {{ Form::label('close', '是否关闭', ['class' => 'control-label col-md-4']) }}
                         {{ Form::select('close', ['' => '无', '是' => '是', '否' => '否'], $case->close, ['class' => 'form-control col-md-8']) }}
                     </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('complainant') ? ' has-error' : '' }}">
+                        {{ Form::label('complainant', '投诉人', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::text('complainant', $case->complainant, ['class' => 'form-control col-md-8']) }}
+                    </div>
+                    
+                    <div class="form-group col-md-4{{ $errors->has('complaint_call') ? ' has-error' : '' }}">
+                        {{ Form::label('complaint_call', '投诉电话', ['class' => 'control-label col-md-4']) }}
+                        {{ Form::text('complaint_call', $case->complaint_call, ['class' => 'form-control col-md-8']) }}
+                    </div>
                 </div>
                 
                 <div class="row">
